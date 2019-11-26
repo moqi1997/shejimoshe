@@ -1,6 +1,6 @@
-package com.moqi.wsmst;
+package com.moqi.Factory;
 
-import com.moqi.wsmst.service.Shape;
+import com.moqi.Factory.service.Shape;
 
 public class Rectangle implements Shape {
     @Override

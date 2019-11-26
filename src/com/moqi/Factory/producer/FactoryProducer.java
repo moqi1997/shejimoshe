@@ -1,8 +1,8 @@
-package com.moqi.wsmst.producer;
+package com.moqi.Factory.producer;
 
-import com.moqi.wsmst.Factory.ColorFactory;
-import com.moqi.wsmst.Factory.ShapeFactory;
-import com.moqi.wsmst.service.AbstractFactory;
+import com.moqi.Factory.ColorFactory;
+import com.moqi.Factory.ShapeFactory;
+import com.moqi.Factory.service.AbstractFactory;
 
 public class FactoryProducer {
     public static AbstractFactory getFactory(String choice){

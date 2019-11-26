@@ -1,9 +1,9 @@
-package com.moqi.wsmst;
+package com.moqi.Factory;
 
-import com.moqi.wsmst.producer.FactoryProducer;
-import com.moqi.wsmst.service.AbstractFactory;
-import com.moqi.wsmst.service.Color;
-import com.moqi.wsmst.service.Shape;
+import com.moqi.Factory.service.Shape;
+import com.moqi.Factory.producer.FactoryProducer;
+import com.moqi.Factory.service.AbstractFactory;
+import com.moqi.Factory.service.Color;
 
 public class AbstractFactoryPatternDemo {
     public static void main(String[] args) {

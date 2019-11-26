@@ -1,11 +1,8 @@
-package com.moqi.wsmst.Factory;
+package com.moqi.Factory;
 
-import com.moqi.wsmst.Circle;
-import com.moqi.wsmst.Rectangle;
-import com.moqi.wsmst.Square;
-import com.moqi.wsmst.service.AbstractFactory;
-import com.moqi.wsmst.service.Color;
-import com.moqi.wsmst.service.Shape;
+import com.moqi.Factory.service.Shape;
+import com.moqi.Factory.service.AbstractFactory;
+import com.moqi.Factory.service.Color;
 
 public class ShapeFactory extends AbstractFactory {
 

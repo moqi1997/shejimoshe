@@ -1,6 +1,6 @@
-package com.moqi.wsmst;
+package com.moqi.Factory;
 
-import com.moqi.wsmst.service.Color;
+import com.moqi.Factory.service.Color;
 
 public class Green implements Color {
 

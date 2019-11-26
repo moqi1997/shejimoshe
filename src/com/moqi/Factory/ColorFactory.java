@@ -1,11 +1,8 @@
-package com.moqi.wsmst.Factory;
+package com.moqi.Factory;
 
-import com.moqi.wsmst.Blue;
-import com.moqi.wsmst.Green;
-import com.moqi.wsmst.Red;
-import com.moqi.wsmst.service.AbstractFactory;
-import com.moqi.wsmst.service.Color;
-import com.moqi.wsmst.service.Shape;
+import com.moqi.Factory.service.AbstractFactory;
+import com.moqi.Factory.service.Shape;
+import com.moqi.Factory.service.Color;
 
 public class ColorFactory extends AbstractFactory {
 
