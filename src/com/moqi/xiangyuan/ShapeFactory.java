@@ -3,15 +3,45 @@ package com.moqi.xiangyuan;
 import java.util.HashMap;
 
 public class ShapeFactory {
-    private static final HashMap<String, Shape> circleMap = new HashMap<>();
-    public static Shape getCircle(String color) {
-        Circle circle = (Circle)circleMap.get(color);
+    private static final long count = 1000000100;
 
-        if(circle == null) {
-            circle = new Circle(color);
-            circleMap.put(color, circle);
-            System.out.println("Creating circle of color : " + color);
+    public static void main(String[] args) throws InterruptedException {
+        concurreny();
+        serial();
+    }
+
+    private static void concurreny() throws InterruptedException {
+        long start = System.currentTimeMillis();
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int a = 0;
+                for (long i = 0; i < count; i++) {
+                    a += 5;
+                }
+            }
+        });
+        thread.start();
+        int b = 0;
+        for (long i = 0; i < count; i++) {
+          b--;
         }
-        return circle;
+        thread.join();
+        long time = System.currentTimeMillis() - start;
+        System.out.println("concurrency ：" + time + "ms,b=" + b);
+    }
+
+    private static void serial() {
+        long start = System.currentTimeMillis();
+        int a = 0;
+        for (long i = 0; i < count; i++) {
+            a += 5;
+        }
+        int b = 0;
+        for (long i = 0; i < count; i++) {
+            b--;
+        }
+        long time = System.currentTimeMillis() - start;
+        System.out.println("serial:" + time + "ms,b=" + b + ",a=" + a);
     }
 }
