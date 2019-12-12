@@ -7,6 +7,7 @@ public class TFCardImpl implements TFCard {
         return msg;
     }
 
+
     @Override
     public int writeTF(String msg) {
         System.out.println("tf card write a msg : " + msg);
