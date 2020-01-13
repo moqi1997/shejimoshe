@@ -60,31 +60,26 @@ class ProxyFactory {
 
     // 返回对目标对象(target)代理后的对象(proxy)
     public Object getProxyInstance() {
+        // 执行代理对象方法时候触发
         Object proxy = Proxy.newProxyInstance(
                 target.getClass().getClassLoader(),  // 目标对象使用的类加载器
                 target.getClass().getInterfaces(),   // 目标对象实现的所有接口
-                new InvocationHandler() {
-                    // 执行代理对象方法时候触发
+                (proxy1, method, args) -> {
 
-                    @Override
-                    public Object invoke(Object proxy, Method method, Object[] args)
-                            throws Throwable {
-
-                        // 获取当前执行的方法的方法名
-                        String methodName = method.getName();
-                        // 方法返回值
-                        Object result = null;
-                        if ("find".equals(methodName)) {
-                            // 直接调用目标对象方法
-                            result = method.invoke(target, args);
-                        } else {
-                            System.out.println("开启事务...");
-                            // 执行目标对象方法
-                            result = method.invoke(target, args);
-                            System.out.println("提交事务...");
-                        }
-                        return result;
+                    // 获取当前执行的方法的方法名
+                    String methodName = method.getName();
+                    // 方法返回值
+                    Object result = null;
+                    if ("find".equals(methodName)) {
+                        // 直接调用目标对象方法
+                        result = method.invoke(target, args);
+                    } else {
+                        System.out.println("开启事务...");
+                        // 执行目标对象方法
+                        result = method.invoke(target, args);
+                        System.out.println("提交事务...");
                     }
+                    return result;
                 }
         );
         return proxy;
